@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rloldl_withju | 🐰丁恩妃的起司蛋糕🧀🍰</title>
     <link rel="stylesheet" href="style.css">
+    <!-- ExcelJS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +38,6 @@
         <div class="hero-content">
             <h1>HSUN追星日記</h1>
             <div class="socials" style="margin-top: 20px;">
-                <a href="https://www.instagram.com/ku_hsun/" target="_blank" class="social-icon" title="Instagram"><i
-                        class="fab fa-instagram"></i></a>
                 <a href="https://www.threads.com/@ku_hsun" target="_blank" class="social-icon" title="Threads"><i
                         class="fas fa-at"></i></a>
             </div>
@@ -53,24 +54,10 @@
                 <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/icons/1ff20958-4a14-4e5b-8139-63bd10d69385.jpeg"
                     alt="Profile" class="profile-image">
                 <div class="profile-info">
-                    <h3>我的一些特質</h3>
                     <p class="story-text">
-                        1999年生人<br>
-                        台中人<br>
-                        MBTI: INTJ<br>
+                        1999/台中/INTJ<br>
                         BUDDY/Na.V
                     </p>
-                    <div class="likes-dislikes" style="margin-top: 20px;">
-                        <h4 style="color: var(--accent-color); margin-bottom: 10px;">💖 喜歡</h4>
-                        <p style="font-size: 0.95rem; opacity: 0.9;">
-                            ...
-                        </p>
-                        <br>
-                        <h4 style="color: var(--primary-color); margin-bottom: 10px;">💔 不喜歡</h4>
-                        <p style="font-size: 0.95rem; opacity: 0.9;">
-                            黃牛、詐騙、Hybe、Source Music
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -102,114 +89,16 @@
     <section id="records" class="schedule">
         <div class="container">
             <h2 class="section-title">線下紀錄 💖</h2>
-            <div class="timeline">
-                <!-- 2019 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2019.08.31</span>
-                        <h4>GFRIEND 2019 ASIA TOUR</h4>
-                        <p>GO GO GFRIEND in Taipei</p>
-                        <p>國立體育大學綜合體育館</p>
-                        <p>紫19區 2排5號</p>
-                        <img src="https://scontent.fkhh1-1.fna.fbcdn.net/v/t1.6435-9/69701424_1338554832989094_1132898165209432064_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=wAWrYVULXNkQ7kNvwHtg2Ok&_nc_oc=Adk-P7VzZw30qNjlSb5ZD0GtflCX7fJWer20RPEbfF7rNFICNuDXutoqQQ35JKNgenQ_69PA2W43f79oW2vd-mC8&_nc_zt=23&_nc_ht=scontent.fkhh1-1.fna&_nc_gid=N8ge0Fm5MeMOU3gB4jholg&oh=00_AfsnsBwzCjuvi2RgR9h64k812M5hrR0gdBiMSxn9IK80eg&oe=69BACAFD"
-                            style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <!-- 2025 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2025.03.22</span>
-                        <h4>GFRIEND 10th Anniversary</h4>
-                        <p>Season of Memories in Kaohsiung</p>
-                        <p>高雄流行音樂中心</p>
-                        <p>VIP B區 687號</p>
-                        <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/profile_links/buttons/cde4bef3-c8f0-4f05-a86f-4fe6d1d9e27e.jpeg"
-                            style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2025.03.23</span>
-                        <h4>GFRIEND 10th Anniversary</h4>
-                        <p>Season of Memories in Kaohsiung</p>
-                        <p>高雄流行音樂中心</p>
-                        <p>VIP 2B區 2排30號</p>
-                        <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/profile_links/buttons/cde4bef3-c8f0-4f05-a86f-4fe6d1d9e27e.jpeg"
-                            style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2025.05.18</span>
-                        <h4>2025 MIXPOP CONCERT</h4>
-                        <p>VIVIZ</p>
-                        <p>TICC</p>
-                        <p>A區 24排44號</p>
-                        <img src="" style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2025.10.09</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY in Tokyo</p>
-                        <p>Zepp Haneda (TOKYO)</p>
-                        <p>VIP N5</p>
-                        <p>K29(Sound Check)</p>
-                        <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/profile_links/buttons/f7544a2a-078e-4a77-b80e-01118e24c967.jpeg"
-                            style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2025.11.02</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY in Taipei</p>
-                        <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/profile_links/buttons/f7544a2a-078e-4a77-b80e-01118e24c967.jpeg"
-                            style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <!-- 2026 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2026.02.27</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY</p>
-                        <img src="" style="width: 100%; border-radius: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2026.03.01</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY</p>
 
-                    </div>
-                </div>
+            <!-- Offline Records Section -->
+            <!-- Data is loaded from Google Sheets automatically -->
+
+            <div class="timeline" id="timeline-container">
+                <!-- Timeline items will be loaded dynamically via script.js -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="date">2026.03.15</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY</p>
-
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="date">2026.03.28</span>
-                        <h4>VIVIZ World Tour</h4>
-                        <p>NEW LEGACY</p>
-
+                        <p>請上傳您的 Excel (*.xlsx) 檔案以檢視紀錄 📂</p>
                     </div>
                 </div>
             </div>
