@@ -168,165 +168,310 @@ nav.scrolled {
     color: var(--accent-color);
 }
 
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle at center, #FFF0F5 0%, #E1BEE7 100%);
-    position: relative;
-    overflow: hidden;
+/* --- Bento Grid Layout --- */
+
+.bento-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Soft cloud/dreamy texture if available, for now opacity adjusted image */
-    background: url('https://images.unsplash.com/photo-1459749411177-d4a428c3dc39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-    opacity: 0.3;
-    z-index: 0;
-    mix-blend-mode: overlay;
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    /* Flexible rows */
+    gap: 20px;
+    padding: 20px;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    animation: float 6s ease-in-out infinite;
-}
-
-.hero h1 {
-    font-size: 5rem;
-    margin-bottom: 20px;
-    font-style: italic;
-    background: linear-gradient(to right, #FF9EAA, #6D5D8E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-}
-
-.hero p {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    letter-spacing: 3px;
-    font-weight: 300;
-}
-
-/* Profile Section */
-.profile {
-    padding: 100px 0;
-    background: transparent;
-}
-
-.profile-card {
+.bento-item {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 24px;
+    /* Rounded Bento style */
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(109, 93, 142, 0.05);
+    /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    align-items: center;
-    gap: 50px;
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 10px 40px rgba(255, 183, 178, 0.2);
-    /* Subtle pink glow */
+    flex-direction: column;
 }
 
-.profile-image {
-    width: 300px;
-    height: 300px;
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(109, 93, 142, 0.15);
+}
+
+/* Specific Card Layouts */
+
+/* 1. Main Profile (Spans 2 columns, 2 rows on desktop) */
+.profile-main {
+    grid-column: span 2;
+    grid-row: span 2;
+    justify-content: center;
+}
+
+.profile-content-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    height: 100%;
+}
+
+.bento-avatar {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #fff;
-    box-shadow: 0 0 20px var(--accent-glow);
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(255, 158, 170, 0.3);
 }
 
-.profile-info h3 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: var(--primary-color);
+.profile-text {
+    flex: 1;
 }
 
-.profile-desc {
-    color: var(--text-color);
-    margin-bottom: 20px;
+.bento-title {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    background: linear-gradient(to right, #FF9EAA, #6D5D8E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.profile-stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(109, 93, 142, 0.1);
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: block;
-    color: var(--accent-color);
-}
-
-.stat-label {
-    font-size: 0.9rem;
+.bento-subtitle {
+    font-size: 1rem;
     color: #888;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
-/* Gallery Section */
-.gallery {
-    padding: 100px 0;
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+.tag {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: var(--primary-color);
+    border: 1px solid var(--glass-border);
 }
 
-.gallery-item {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    height: 350px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.bio-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.socials-bento {
+    display: flex;
+    gap: 10px;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.social-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background: #fff;
+    border-radius: 12px;
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
 }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 20px;
-    background: linear-gradient(to top, rgba(109, 93, 142, 0.9), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
+.social-btn:hover {
+    background: var(--accent-color);
     color: #fff;
 }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
+/* 2. Bias Cards */
+.bias-main {
+    grid-column: span 1;
+    grid-row: span 1;
+    /* Stronger Pink Gradient for "Pick" */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 158, 170, 0.4) 100%);
+    border: 2px solid var(--accent-color);
+    /* Highlight border */
+    box-shadow: 0 0 25px rgba(255, 158, 170, 0.4);
+    /* Glow effect */
+    position: relative;
+    overflow: hidden;
+}
+
+.bias-main::before {
+    content: '👑';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 5rem;
+    opacity: 0.1;
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+.bias-sub {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.bento-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.member-highlight {
+    margin-bottom: 10px;
+}
+
+.member-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+}
+
+.member-role {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.bias-quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.member-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.member-list li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    padding-left: 10px;
+    border-left: 3px solid var(--accent-glow);
+}
+
+/* 3. Music/Favs */
+.music-fav {
+    grid-column: span 2;
+    /* Expanded to 2 columns */
+    grid-row: span 1;
+    overflow-y: auto;
+    /* Scroll if too long */
+}
+
+.music-list-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Columns: Title, B-Sides, OST */
+    gap: 15px;
+}
+
+.music-category h4 {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 5px;
+}
+
+.music-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.music-category li {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.music-category li::before {
+    content: '•';
+    color: var(--accent-glow);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.disclaimer-text {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 15px;
+    text-align: right;
+    font-style: italic;
+}
+
+/* 4. Stats (Removed) */
+
+
+/* Responsive Bento */
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-main {
+        grid-column: span 2;
+        /* Full width on tablet */
+    }
+
+    .music-fav {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+    }
+
+    .profile-main,
+    .bias-main,
+    .bias-sub,
+    .music-fav {
+        grid-column: span 1;
+    }
+
+    .profile-content-flex {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .tags {
+        justify-content: center;
+    }
+
+    .socials-bento {
+        justify-content: center;
+    }
+
+    .music-list-grid {
+        grid-template-columns: 1fr;
+        /* Stack lists on mobile */
+    }
 }
 
 /* Schedule Section */

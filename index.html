@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rloldl_withju | 🐰丁恩妃的起司蛋糕🧀🍰</title>
+    <title>HSUN's Journey with VIVIZ (GFRIEND) | 🐰丁恩妃</title>
     <link rel="stylesheet" href="style.css">
     <!-- ExcelJS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
@@ -26,64 +26,106 @@
         <div class="container nav-content">
             <a href="#" class="logo">HSUN</a>
             <div class="nav-links">
-                <a href="#profile">關於我</a>
-                <a href="#favorites">追星版圖</a>
+                <a href="#dashboard">總覽</a>
                 <a href="#records">線下紀錄</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>HSUN追星日記</h1>
-            <div class="socials" style="margin-top: 20px;">
-                <a href="https://www.threads.com/@ku_hsun" target="_blank" class="social-icon" title="Threads"><i
-                        class="fas fa-at"></i></a>
-            </div>
-        </div>
-    </header>
+    <!-- Bento Grid Dashboard -->
+    <div id="dashboard" class="container bento-wrapper" style="padding-top: 100px; padding-bottom: 50px;">
+        <div class="bento-grid">
 
-    <!-- Profile Info Section -->
-    <section id="profile" class="profile">
-        <div class="container">
-            <h2 class="section-title">關於我 🐰</h2>
-
-            <div class="profile-card">
-                <!-- Using the profile image from the user provided link -->
-                <img src="https://prd.resource-api.lit.link/images/creators/23ccc31a-f209-4e5f-b5de-750373afb302/icons/1ff20958-4a14-4e5b-8139-63bd10d69385.jpeg"
-                    alt="Profile" class="profile-image">
-                <div class="profile-info">
-                    <p class="story-text">
-                        1999/台中/INTJ<br>
-                        BUDDY/Na.V
-                    </p>
+            <!-- Card 1: Main Profile & Hero (Large, 2x2) -->
+            <div class="bento-item profile-main">
+                <div class="profile-content-flex">
+                    <img src="https://drive.google.com/file/d/1p_i8A9mwNdUOTviWR5wNoTXqi08jrHPN/view?usp=drive_link"
+                        alt="HSUN Profile" class="bento-avatar">
+                    <div class="profile-text">
+                        <h1 class="bento-title">HSUN 追星日記</h1>
+                        <p class="bento-subtitle">My Journey with VIVIZ (GFRIEND)</p>
+                        <div class="tags">
+                            <span class="tag">1999</span>
+                            <span class="tag">Taichung</span>
+                            <span class="tag">INTJ</span>
+                        </div>
+                        <p class="bio-text">記錄所有與小女友與 VIVIZ 的相遇。<br>BUDDY / Na.V</p>
+                        <div class="socials-bento">
+                            <a href="https://www.threads.com/@ku_hsun" target="_blank" class="social-btn"><i
+                                    class="fas fa-at"></i> Threads</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Favorites Grid Section -->
-    <section id="favorites" class="gallery">
-        <div class="container">
-            <h2 class="section-title">我的追星版圖</h2>
-            <div class="gallery-grid">
-                <!-- GFRIEND Card -->
-                <div class="gallery-item" style="background: white; padding: 20px; cursor: default; height: auto;">
-                    <h3 style="color: var(--accent-color); margin-bottom: 15px;">小女友 (GFRIEND)</h3>
-                    <ul style="list-style: none; line-height: 1.8;">
-                        <li><strong>主擔：</strong> 銀河 🐰</li>
-                        <li><strong>副擔：</strong> 所願 🐰、信飛 🐰</li>
-                        <li><strong>最愛專輯：</strong> LOL</li>
-                        <li><strong>主打：</strong> Navillera、Love Whisper</li>
-                        <li><strong>非主打：</strong> Labyrinth、Here We Are、Dreamcatcher、Love Bug、You are not alone、Only
-                            1、RAINBOW、Vacation</li>
-                        <li><strong>OST：</strong> Tell me this is real</li>
-                    </ul>
+            <!-- Card 2: Main Bias (Tall or Wide) -->
+            <div class="bento-item bias-main">
+                <div class="bento-header">
+                    <h3>本命推 🐰</h3>
+                </div>
+                <div class="bias-content">
+                    <div class="member-highlight">
+                        <span class="member-name">Eunha 銀河</span>
+                        <span class="member-role">Vocal</span>
+                    </div>
+                    <p class="bias-quote">"She is the galaxy."</p>
                 </div>
             </div>
+
+            <!-- Card 3: Sub Biases -->
+            <div class="bento-item bias-sub">
+                <div class="bento-header">
+                    <h3>副擔 💖</h3>
+                </div>
+                <ul class="member-list">
+                    <li>所願 (Sowon)</li>
+                    <li>信飛 (SinB)</li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Favorites (Music) - Expanded -->
+            <div class="bento-item music-fav">
+                <div class="bento-header">
+                    <h3>音樂取向 🎵</h3>
+                </div>
+                <div class="music-list-grid">
+                    <div class="music-category">
+                        <h4>Title Tracks</h4>
+                        <ul>
+                            <li>Navillera</li>
+                            <li>Love Whisper</li>
+                            <li>Time for the moon night</li>
+                            <li>Crossroads</li>
+                            <li>MAGO</li>
+                            <li>BOP BOP! (VIVIZ)</li>
+                            <li>MANIAC (VIVIZ)</li>
+                        </ul>
+                    </div>
+                    <div class="music-category">
+                        <h4>B-Sides</h4>
+                        <ul>
+                            <li>Labyrinth</li>
+                            <li>Here We Are</li>
+                            <li>Dreamcatcher</li>
+                            <li>Love Bug</li>
+                            <li>You are not alone</li>
+                            <li>Only 1</li>
+                            <li>RAINBOW</li>
+                            <li>Vacation</li>
+                        </ul>
+                    </div>
+                    <div class="music-category">
+                        <h4>OST</h4>
+                        <ul>
+                            <li>Tell me this is real</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="disclaimer-text">* 順序與喜歡程度無關</p>
+            </div>
+
         </div>
-    </section>
+    </div>
 
     <!-- Offline Records Section -->
     <section id="records" class="schedule">

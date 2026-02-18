@@ -109,10 +109,22 @@ async function fetchAndParseXlsx() {
             let dateVal = row.getCell(1).value;
             let dateStr = '';
             if (dateVal instanceof Date) {
-                const y = dateVal.getFullYear();
-                const m = String(dateVal.getMonth() + 1).padStart(2, '0');
-                const d = String(dateVal.getDate()).padStart(2, '0');
-                dateStr = `${y}.${m}.${d}`;
+                // Use UTC methods to avoid timezone shifts from Excel parsing
+                const y = dateVal.getUTCFullYear();
+                const m = String(dateVal.getUTCMonth() + 1).padStart(2, '0');
+                const d = String(dateVal.getUTCDate()).padStart(2, '0');
+
+                // Add time if present (non-zero) or if explicitly needed
+                const hh = dateVal.getUTCHours();
+                const mm = dateVal.getUTCMinutes();
+
+                // If it looks like a full timestamp (not 00:00), show time
+                // Adjust logic: sometimes excel dates are just dates (00:00)
+                if (hh !== 0 || mm !== 0) {
+                    dateStr = `${y}.${m}.${d} ${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+                } else {
+                    dateStr = `${y}.${m}.${d}`;
+                }
             } else if (typeof dateVal === 'object' && dateVal.result) {
                 // Formula result
                 dateStr = String(dateVal.result);
@@ -174,13 +186,14 @@ async function fetchAndParseXlsx() {
             });
         });
 
-        // Sort by Date Descending
+        // Sort by Date Descending (Newest First)
+        // This implements "倒敘"
         events.sort((a, b) => {
             const da = new Date(a.date.replace(/\./g, '-').replace(/\//g, '-'));
             const db = new Date(b.date.replace(/\./g, '-').replace(/\//g, '-'));
             if (isNaN(da)) return 1;
             if (isNaN(db)) return -1;
-            return db - da;
+            return db - da; // Descending: B (New) - A (Old) > 0 -> B comes first
         });
 
         // Render
@@ -261,3 +274,23 @@ async function fetchAndParseXlsx() {
 
 // Auto-load on page start
 fetchAndParseXlsx();
+updateProfileImage();
+
+function updateProfileImage() {
+    const profileImg = document.querySelector('.bento-avatar');
+    if (profileImg) {
+        const originalSrc = profileImg.getAttribute('src');
+        if (originalSrc && (originalSrc.includes('drive.google.com') || originalSrc.includes('docs.google.com'))) {
+            // Re-use the conversion logic (simplified duplicate here or move helper out)
+            // Since convertDriveLink is inside the other function, we'll duplicate the simple regex here 
+            // or move convertDriveLink to global scope (better).
+            // Let's use the lh3 format directly here for now to be safe.
+
+            const fileMatch = originalSrc.match(/\/file\/d\/([-\w]{25,})/);
+            if (fileMatch && fileMatch[1]) {
+                const newSrc = `https://lh3.googleusercontent.com/d/${fileMatch[1]}`;
+                profileImg.src = newSrc;
+            }
+        }
+    }
+}
